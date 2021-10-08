@@ -1,0 +1,74 @@
+//// -- LEVEL 1
+//// -- Tables and References
+
+// Creating tables
+Table fact_immigration as fi {
+  id INT [pk] // auto-increment
+  cicid BIGINT
+  year INT
+  month INT
+  port CHAR(3)
+  state_code CHAR(2)
+  visa INT
+  arrival_date TIMESTAMP
+  departure_date TIMESTAMP
+  adm_num BIGINT
+}
+
+Table dimm_immi_personal as p {
+  cicid BIGINT [pk]
+  citizen_country INT
+  residence_country INT
+  birth_year INT
+  gender CHAR(1)
+ }
+
+// Creating references
+// You can also define relaionship separately
+// > many-to-one; < one-to-many; - one-to-one
+Ref: fi.cicid - p.cicid  
+// Ref: merchants.country_code > countries.code
+
+Table dimm_flight_detail as f {
+  adm_num BIGINT [pk]
+  flight_no CHAR
+  airline VARCHAR
+  visatype VARCHAR
+}
+Ref: fi.adm_num - f.adm_num
+
+Table dimm_city_population as cp{
+  city VARCHAR
+  state VARCHAR
+  city_code CHAR(3)
+  state_code CHAR(2)
+  male_population INT
+  female_population INT
+  total_population INT
+  veteran_population INT
+  foreign_population INT
+  race  VARCHAR
+}
+Ref: fi.port > cp.city_code
+
+Table dimm_city_stats as cs{
+  city VARCHAR
+  state VARCHAR
+  city_code CHAR(3)
+  state_code CHAR(2)
+  median_age FLOAT
+  avg_household_size FLOAT
+}
+Ref: fi.port > cs.city_code
+
+Table dimm_airports as a{
+  airport_id CHAR(5)
+  type VARCHAR
+  name VARCHAR
+  elevation_ft INT
+  region CHAR(2)
+  muncipality VARCHAR
+  coordinates VARCHAR
+}
+Ref: fi.state_code > a.region
+
