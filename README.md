@@ -1,4 +1,4 @@
-# Project: Data Pipelines with Airflow:
+# Project: Data Engineering Nano Degree Capstone Project:
 ## Project Introduction:
 This is my capstone project for [Data Engineering Nano Degree program](https://www.udacity.com/course/data-engineer-nanodegree--nd027?gclid=CjwKCAjw2P-KBhByEiwADBYWCtJi6nsA-_F3xHFbiqbmsxIefTbRt2w_UGRGsl4n-LHjtujG2uMpuBoCquoQAvD_BwE&utm_campaign=12908932988_c&utm_keyword=%2Budacity%20%2Bdata%20%2Bengineer_b&utm_medium=ads_r&utm_source=gsem_brand&utm_term=124509203751) offered on Udacity. This was an open ended project in which I had to implement skills I learnt from the program in a practical sense to collect and create an ETL pipeline for that data according to my choice of data model.
 
